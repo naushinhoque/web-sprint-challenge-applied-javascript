@@ -11,7 +11,26 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  const headerWrapper = document.createElement('div');
+  const mdy = document.createElement('span');
+  const bloomTechtimes = document.createElement('h1');
+  const tempurature = document.createElement('span');
+
+  headerWrapper.classList.add('header');
+  mdy.classList.add('date');
+  tempurature.classList.add('temp');
+
+  mdy.textContent = date;
+  bloomTechtimes.textContent = title;
+  tempurature.textContent = temp;
+
+  headerWrapper.appendChild(mdy);
+  headerWrapper.appendChild(bloomTechtimes);
+  headerWrapper.appendChild(tempurature);
+
+  return headerWrapper;
 }
+//console.log(Header("Test", "01-01-23", "65F"));
 
 const headerAppender = (selector) => {
   // TASK 2
@@ -21,11 +40,24 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 
+
+ let wrapper = document.querySelector(selector);
+
+ wrapper.appendChild(Header('Bloomtech Times', '01-06-23', '65F'))
+  //   wrapper.appendChild(date);
+  //   wrapper.appendChild(title);
+  //   wrapper.appendChild(temp);
+
+  //   document.headerWrapper.appendChild(date)
+
+
   // HINT: querySelector can take in a string (ie querySelector("#wrapper")) 
   // but it can also take in a variable (ie querySelector(selector))
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
+
 }
 
 export { Header, headerAppender }
+//
